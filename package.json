@@ -1,0 +1,37 @@
+{
+  "name": "finchart",
+  "version": "0.1.0",
+  "description": "",
+  "keywords": [],
+  "author": "Spencer Lepine",
+  "license": "MIT",
+  "private": true,
+  "workspaces": [
+    "client",
+    "api"
+  ],
+  "scripts": {
+    "start": "yarn workspace api start",
+    "start:prod": "cd api && yarn run start",
+    "build": "yarn workspace client build",
+    "test": "yarn workspace api test && yarn workspace client test",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "prettier": "prettier --check **/*.js",
+    "prettier:fix": "prettier --write **/*.js",
+    "dev": "(npm-watch) & yarn workspace api dev",
+    "prepare": "husky install"
+  },
+  "devDependencies": {
+    "eslint": "^7.0.0",
+    "eslint-config-prettier": "^8.1.0",
+    "eslint-plugin-prettier": "^3.1.1",
+    "husky": "^7.0.0",
+    "lint-staged": "^11.0.0",
+    "npm-watch": "^0.11.0",
+    "prettier": "^2.8.1"
+  },
+  "watch": {
+    "build": "client/src/"
+  }
+}
