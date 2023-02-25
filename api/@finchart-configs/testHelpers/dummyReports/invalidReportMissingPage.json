@@ -1,0 +1,432 @@
+{
+  "userId": "shouldntThrowError",
+  "title": "shouldntThrowError",
+  "status": "draft",
+  "notes": "shouldntThrowError",
+  "version": "1.0.0",
+  "createdAt": "shouldntThrowError",
+  "updatedAt": "shouldntThrowError",
+  "id": "shouldntThrowError",
+  "spreadsheets": [
+    {
+      "reportId": "6822cb28-1f33-4450-98ec-7b41732af3d4",
+      "userId": "testuser123",
+      "formPageId": "income-broken",
+      "name": "Income Not Valid",
+      "columns": [
+        {
+          "key": "name",
+          "title": "Name",
+          "dataType": "string",
+          "_id": "63cc999ed998efef7bb6556f"
+        },
+        {
+          "key": "monthly-gross",
+          "title": "Monthly Gross",
+          "dataType": "number",
+          "_id": "63cc999ed998efef7bb65570"
+        },
+        {
+          "key": "monthly-net",
+          "title": "Monthly Net",
+          "dataType": "number",
+          "_id": "63cc999ed998efef7bb65571"
+        },
+        {
+          "key": "comment",
+          "title": "Comment",
+          "dataType": "string",
+          "_id": "63cc999ed998efef7bb65572"
+        }
+      ],
+      "data": [],
+      "prevFormPageId": null,
+      "nextFormPageId": "taxes",
+      "columnSumKeys": [
+        {
+          "key": "monthly-gross"
+        }
+      ],
+      "id": "f9d08f56-6489-4e03-9c0d-2bf2ec688e52"
+    },
+    {
+      "reportId": "6822cb28-1f33-4450-98ec-7b41732af3d4",
+      "userId": "testuser123",
+      "formPageId": "taxes",
+      "name": "Taxes",
+      "columns": [
+        {
+          "key": "category",
+          "title": "Category",
+          "dataType": "string",
+          "_id": "63cc999ed998efef7bb65573"
+        },
+        {
+          "key": "monthly-tax",
+          "title": "Monthly Tax",
+          "dataType": "number",
+          "_id": "63cc999ed998efef7bb65574"
+        },
+        {
+          "key": "comment",
+          "title": "Comment",
+          "dataType": "string",
+          "_id": "63cc999ed998efef7bb65575"
+        }
+      ],
+      "data": [],
+      "prevFormPageId": "income",
+      "nextFormPageId": "spending",
+      "columnSumKeys": [
+        {
+          "key": "monthly-tax",
+          "isNegative": true
+        }
+      ],
+      "id": "fc26a479-cedc-4063-8727-49ea97c184cc"
+    },
+    {
+      "reportId": "6822cb28-1f33-4450-98ec-7b41732af3d4",
+      "userId": "testuser123",
+      "formPageId": "spending",
+      "name": "Spending",
+      "columns": [
+        {
+          "key": "category",
+          "title": "Category",
+          "dataType": "string",
+          "_id": "63cc999ed998efef7bb65576"
+        },
+        {
+          "key": "monthly-budget",
+          "title": "Monthly Budget",
+          "dataType": "number",
+          "_id": "63cc999ed998efef7bb65577"
+        },
+        {
+          "key": "item",
+          "title": "Item",
+          "dataType": "string",
+          "_id": "63cc999ed998efef7bb65578"
+        },
+        {
+          "key": "comment",
+          "title": "Comment",
+          "dataType": "string",
+          "_id": "63cc999ed998efef7bb65579"
+        }
+      ],
+      "data": [],
+      "prevFormPageId": "taxes",
+      "nextFormPageId": "investing",
+      "columnSumKeys": [
+        {
+          "key": "monthly-budget",
+          "isNegative": true
+        }
+      ],
+      "id": "7c133a57-d53c-46ce-883c-c1dadad894b3"
+    },
+    {
+      "reportId": "6822cb28-1f33-4450-98ec-7b41732af3d4",
+      "userId": "testuser123",
+      "formPageId": "investing",
+      "name": "Investing",
+      "columns": [
+        {
+          "key": "name",
+          "title": "Name",
+          "dataType": "string",
+          "_id": "63cc999ed998efef7bb6557a"
+        },
+        {
+          "key": "monthly-amount",
+          "title": "Monthly Amount",
+          "dataType": "string",
+          "_id": "63cc999ed998efef7bb6557b"
+        },
+        {
+          "key": "comment",
+          "title": "Comment",
+          "dataType": "string",
+          "_id": "63cc999ed998efef7bb6557c"
+        }
+      ],
+      "data": [],
+      "prevFormPageId": "spending",
+      "nextFormPageId": "savings",
+      "columnSumKeys": [
+        {
+          "key": "monthly-amount"
+        }
+      ],
+      "id": "17d5e74c-319c-4059-8db0-991f1e192fee"
+    },
+    {
+      "reportId": "6822cb28-1f33-4450-98ec-7b41732af3d4",
+      "userId": "testuser123",
+      "formPageId": "savings",
+      "name": "Savings",
+      "columns": [
+        {
+          "key": "name",
+          "title": "Name",
+          "dataType": "string",
+          "_id": "63cc999ed998efef7bb6557d"
+        },
+        {
+          "key": "monthly-amount",
+          "title": "Monthly Amount",
+          "dataType": "number",
+          "_id": "63cc999ed998efef7bb6557e"
+        },
+        {
+          "key": "comment",
+          "title": "Comment",
+          "dataType": "string",
+          "_id": "63cc999ed998efef7bb6557f"
+        }
+      ],
+      "data": [],
+      "prevFormPageId": "investing",
+      "nextFormPageId": "cash",
+      "columnSumKeys": [
+        {
+          "key": "monthly-amount"
+        }
+      ],
+      "id": "a2b2e599-0831-4bc7-ad93-2850f940f5c0"
+    },
+    {
+      "reportId": "6822cb28-1f33-4450-98ec-7b41732af3d4",
+      "userId": "testuser123",
+      "formPageId": "cash",
+      "name": "Cash",
+      "columns": [
+        {
+          "key": "name",
+          "title": "Name",
+          "dataType": "string",
+          "_id": "63cc999ed998efef7bb65580"
+        },
+        {
+          "key": "type",
+          "title": "Type",
+          "dataType": "string",
+          "_id": "63cc999ed998efef7bb65581"
+        },
+        {
+          "key": "current-total",
+          "title": "Current Total",
+          "dataType": "number",
+          "_id": "63cc999ed998efef7bb65582"
+        },
+        {
+          "key": "comment",
+          "title": "Comment",
+          "dataType": "string",
+          "_id": "63cc999ed998efef7bb65583"
+        }
+      ],
+      "data": [],
+      "prevFormPageId": "savings",
+      "nextFormPageId": "assets",
+      "columnSumKeys": [
+        {
+          "key": "current-total"
+        }
+      ],
+      "id": "66ab0585-cd2f-4f7c-88d3-53b158de538b"
+    },
+    {
+      "reportId": "6822cb28-1f33-4450-98ec-7b41732af3d4",
+      "userId": "testuser123",
+      "formPageId": "assets",
+      "name": "Assets",
+      "columns": [
+        {
+          "key": "name",
+          "title": "Name",
+          "dataType": "string",
+          "_id": "63cc999ed998efef7bb65584"
+        },
+        {
+          "key": "type",
+          "title": "Type",
+          "dataType": "string",
+          "_id": "63cc999ed998efef7bb65585"
+        },
+        {
+          "key": "category",
+          "title": "Category",
+          "dataType": "string",
+          "_id": "63cc999ed998efef7bb65586"
+        },
+        {
+          "key": "monthly-income",
+          "title": "Monthly Income",
+          "dataType": "number",
+          "_id": "63cc999ed998efef7bb65587"
+        },
+        {
+          "key": "current-value",
+          "title": "Current Value",
+          "dataType": "number",
+          "_id": "63cc999ed998efef7bb65588"
+        },
+        {
+          "key": "comment",
+          "title": "Comment",
+          "dataType": "string",
+          "_id": "63cc999ed998efef7bb65589"
+        }
+      ],
+      "data": [],
+      "prevFormPageId": "cash",
+      "nextFormPageId": "liabilites",
+      "columnSumKeys": [
+        {
+          "key": "current-value"
+        },
+        {
+          "key": "monthly-income"
+        }
+      ],
+      "id": "4c898541-cb8b-448f-ae99-ca57f242b1ee"
+    },
+    {
+      "reportId": "6822cb28-1f33-4450-98ec-7b41732af3d4",
+      "userId": "testuser123",
+      "formPageId": "liabilites",
+      "name": "Liabilites",
+      "columns": [
+        {
+          "key": "name",
+          "title": "Name",
+          "dataType": "string",
+          "_id": "63cc999ed998efef7bb6558a"
+        },
+        {
+          "key": "type",
+          "title": "Type",
+          "dataType": "string",
+          "_id": "63cc999ed998efef7bb6558b"
+        },
+        {
+          "key": "monthly-cost",
+          "title": "Monthly Cost",
+          "dataType": "number",
+          "_id": "63cc999ed998efef7bb6558c"
+        },
+        {
+          "key": "current-value",
+          "title": "Current Value",
+          "dataType": "number",
+          "_id": "63cc999ed998efef7bb6558d"
+        },
+        {
+          "key": "comment",
+          "title": "Comment",
+          "dataType": "string",
+          "_id": "63cc999ed998efef7bb6558e"
+        }
+      ],
+      "data": [],
+      "prevFormPageId": "assets",
+      "nextFormPageId": "goals",
+      "columnSumKeys": [
+        {
+          "key": "monthly-owed"
+        },
+        {
+          "key": "current-value"
+        }
+      ],
+      "id": "600cd7ea-8708-4eee-86fe-9555d98ab34e"
+    },
+    {
+      "reportId": "6822cb28-1f33-4450-98ec-7b41732af3d4",
+      "userId": "testuser123",
+      "formPageId": "goals",
+      "name": "Goals",
+      "columns": [
+        {
+          "key": "name",
+          "title": "Name",
+          "dataType": "string",
+          "_id": "63cc999ed998efef7bb6558f"
+        },
+        {
+          "key": "type",
+          "title": "Type",
+          "dataType": "string",
+          "_id": "63cc999ed998efef7bb65590"
+        },
+        {
+          "key": "goal",
+          "title": "Goal",
+          "dataType": "number",
+          "_id": "63cc999ed998efef7bb65591"
+        },
+        {
+          "key": "current-amount",
+          "title": "Current Amount",
+          "dataType": "number",
+          "_id": "63cc999ed998efef7bb65592"
+        },
+        {
+          "key": "target-date",
+          "title": "Target Date",
+          "dataType": "string",
+          "_id": "63cc999ed998efef7bb65593"
+        },
+        {
+          "key": "comment",
+          "title": "Comment",
+          "dataType": "string",
+          "_id": "63cc999ed998efef7bb65594"
+        }
+      ],
+      "data": [],
+      "prevFormPageId": "liabilites",
+      "nextFormPageId": "credit-cards",
+      "id": "12ca538f-7d90-46f7-8039-cc7d46fd605d"
+    },
+    {
+      "reportId": "6822cb28-1f33-4450-98ec-7b41732af3d4",
+      "userId": "testuser123",
+      "formPageId": "credit-cards",
+      "name": "Credit Cards",
+      "columns": [
+        {
+          "key": "name",
+          "title": "Name",
+          "dataType": "string",
+          "_id": "63cc999ed998efef7bb65595"
+        },
+        {
+          "key": "type",
+          "title": "Type",
+          "dataType": "string",
+          "_id": "63cc999ed998efef7bb65596"
+        },
+        {
+          "key": "date-opened",
+          "title": "Current Value",
+          "dataType": "string",
+          "_id": "63cc999ed998efef7bb65597"
+        },
+        {
+          "key": "comment",
+          "title": "Comment",
+          "dataType": "string",
+          "_id": "63cc999ed998efef7bb65598"
+        }
+      ],
+      "data": [],
+      "prevFormPageId": "goals",
+      "nextFormPageId": null,
+      "id": "8bc7cedd-008e-498c-a617-9e228d617f9e"
+    }
+  ]
+}

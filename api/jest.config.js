@@ -10,8 +10,9 @@ module.exports = {
   moduleNameMapper: {
     '^uuid$': require.resolve('uuid'), // stackoverflow.com/questions/49263429
   },
-  coveragePathIgnorePatterns: ['node_modules', 'src/config', 'src/app.js', 'tests'],
+  testMatch: ['**/*.test.js'],
+  coveragePathIgnorePatterns: ['node_modules', 'src/config', 'src/app.js', 'tst'],
   collectCoverage: true,
   coverageReporters: ['text', 'lcov', 'clover', 'html'],
-  setupFilesAfterEnv: ['<rootDir>/tests/utils/globalSetup.js'],
+  setupFilesAfterEnv: ['<rootDir>/tst/utils/globalSetup.js'],
 };

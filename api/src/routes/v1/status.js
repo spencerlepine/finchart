@@ -3,9 +3,19 @@ const router = express.Router();
 const config = require('../../config/config');
 const { isDatabaseConnected } = require('../../utils/databaseUtils');
 
-// @route GET api/status
-// @description health check endpoint
-// @access Public
+/**
+ * @api {get} /status Retreive health status
+ * @apiName GetHealthStatus
+ * @apiGroup Status
+ *
+ * @apiSuccessExample Success-Response:
+ *     HTTP/1.1 200 OK
+ *   {
+ *     'serverRunning': true,
+ *     'databaseConnected': true,
+ *     'nodeEnvMode': 'production'
+ *   }
+ */
 router.get('/', (req, res) => {
   res.send({
     serverRunning: true,
