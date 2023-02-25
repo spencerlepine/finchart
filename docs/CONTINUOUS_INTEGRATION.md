@@ -2,15 +2,15 @@
 
 Lint, build, and test during Node.js - on every commit
 
-### Link Repository to CodeCov
+<!-- ### Link Repository to CodeCov
 
-Visit: https://app.codecov.io
+Visit: https://app.codecov.io -->
 
-### Update GitHub Secrets
+<!-- ### Update GitHub Secrets
 
 ```yml
-- CODECOV_TOKEN: <TODO>
-```
+- CODECOV_TOKEN: <SET_ME>
+``` -->
 
 ### Customize CI Workflow
 
