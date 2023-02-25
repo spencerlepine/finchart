@@ -1,0 +1,582 @@
+{
+  "userId": "testuser123",
+  "title": "Mid Q3 Report",
+  "status": "draft",
+  "version": "1.0.0",
+  "notes": "This was generated during development.",
+  "id": "6396a2ba561d3cd644e2f97e",
+  "yeet": "6396a2ba561d3cd644e2f97e",
+  "spreadsheets": [
+    {
+      "id": "6396a2ba561d3cd644e2f980",
+      "formPageId": "taxes",
+      "userId": "testuser123",
+      "reportId": "6396a2ba561d3cd644e2f97e",
+      "name": "Taxes",
+      "tip": "Provide best estimate of taxes",
+      "columns": [
+        {
+          "key": "category",
+          "title": "Category",
+          "dataType": "string"
+        },
+        {
+          "key": "monthly-tax",
+          "title": "Monthly Tax",
+          "dataType": "number"
+        }
+      ],
+      "columnSumKeys": [
+        {
+          "key": "monthly-tax",
+          "isNegative": true
+        }
+      ],
+      "data": [
+        {
+          "id": 0,
+          "category": "All Tax",
+          "monthly-tax": 1000
+        }
+      ],
+      "createdAt": "2022-12-12T03:06:21.770Z",
+      "updatedAt": "2022-12-12T03:06:21.770Z"
+    },
+    {
+      "id": "6396a2ba561d3cd644e2f981",
+      "formPageId": "income",
+      "userId": "testuser123",
+      "reportId": "6396a2ba561d3cd644e2f97e",
+      "name": "Monthly Income",
+      "tip": "",
+      "columnSumKeys": [
+        {
+          "key": "monthly-gross"
+        }
+      ],
+      "columns": [
+        {
+          "key": "name",
+          "title": "Name",
+          "dataType": "string"
+        },
+        {
+          "key": "monthly-gross",
+          "title": "Monthly Gross",
+          "dataType": "number"
+        },
+        {
+          "key": "monthly-net",
+          "title": "Monthly Net",
+          "dataType": "number"
+        }
+      ],
+      "data": [
+        {
+          "id": 3,
+          "name": "Office Job",
+          "monthly-gross": 5000,
+          "monthly-net": 4000
+        }
+      ],
+      "createdAt": "2022-12-12T03:06:21.770Z",
+      "updatedAt": "2022-12-12T03:06:21.770Z"
+    },
+    {
+      "id": "6396a2ba561d3cd644e2f984",
+      "formPageId": "assets",
+      "userId": "testuser123",
+      "reportId": "6396a2ba561d3cd644e2f97e",
+      "name": "Assets Holdings",
+      "tip": "Provide best estimate for value of assets",
+      "columns": [
+        {
+          "key": "name",
+          "title": "Name",
+          "dataType": "string"
+        },
+        {
+          "key": "type",
+          "title": "Type",
+          "dataType": "string"
+        },
+        {
+          "key": "category",
+          "title": "Category",
+          "dataType": "string"
+        },
+        {
+          "key": "current-value",
+          "title": "Current Value",
+          "dataType": "number"
+        }
+      ],
+      "data": [
+        {
+          "id": 1,
+          "name": "Robinhood",
+          "type": "Stocks",
+          "category": "Brokerage",
+          "current-value": 9999,
+          "monthly-income": 0
+        }
+      ],
+      "columnSumKeys": [
+        {
+          "key": "current-value"
+        }
+      ],
+      "createdAt": "2022-12-12T03:06:21.770Z",
+      "updatedAt": "2022-12-12T03:06:21.770Z"
+    },
+    {
+      "id": "6396a2ba561d3cd644e2f985",
+      "formPageId": "liabilites",
+      "userId": "testuser123",
+      "reportId": "6396a2ba561d3cd644e2f97e",
+      "name": "Current Liabilities",
+      "tip": "Provide best estimate of eacb debt",
+      "columns": [
+        {
+          "key": "name",
+          "title": "Name",
+          "dataType": "string"
+        },
+        {
+          "key": "type",
+          "title": "Type",
+          "dataType": "string"
+        },
+        {
+          "key": "current-value",
+          "title": "Current Value",
+          "dataType": "number"
+        },
+        {
+          "key": "monthly-cost",
+          "title": "Monthly Cost",
+          "dataType": "number"
+        }
+      ],
+      "data": [],
+      "columnSumKeys": [
+        {
+          "key": "current-value"
+        },
+        {
+          "key": "monthly-cost"
+        }
+      ],
+      "createdAt": "2022-12-12T03:06:21.770Z",
+      "updatedAt": "2022-12-12T03:06:21.770Z"
+    },
+    {
+      "id": "6396a2ba561d3cd644e2f986",
+      "formPageId": "goals",
+      "userId": "testuser123",
+      "reportId": "6396a2ba561d3cd644e2f97e",
+      "name": "Current Goals",
+      "tip": "",
+      "columns": [
+        {
+          "key": "name",
+          "title": "Name",
+          "dataType": "string"
+        },
+        {
+          "key": "type",
+          "title": "Type",
+          "dataType": "string"
+        },
+        {
+          "key": "goal",
+          "title": "Goal",
+          "dataType": "number"
+        },
+        {
+          "key": "current-amount",
+          "title": "Current Amount",
+          "dataType": "number"
+        },
+        {
+          "key": "target-date",
+          "title": "Target Date",
+          "dataType": "string"
+        },
+        {
+          "key": "comment",
+          "title": "Comment",
+          "dataType": "string"
+        }
+      ],
+      "data": [
+        {
+          "id": 1,
+          "name": "Phone",
+          "type": "Recurring",
+          "goal": 800,
+          "current-amount": 0,
+          "target-date": "12/01/2024",
+          "comment": "Got new phone in July 2022"
+        },
+        {
+          "id": 4,
+          "name": "Car",
+          "type": "Recurring",
+          "goal": 5000,
+          "current-amount": 0,
+          "target-date": "12/01/2027",
+          "comment": ""
+        },
+        {
+          "id": 5,
+          "name": "Rainy Day Fund",
+          "type": "Emergency Fund",
+          "goal": 18000,
+          "current-amount": 8500,
+          "target-date": "12/01/2023",
+          "comment": "TODO - read articles"
+        },
+        {
+          "id": 6,
+          "name": "Tires",
+          "type": "Recurring",
+          "goal": 650,
+          "current-amount": 0,
+          "target-date": "12/01/2025",
+          "comment": ""
+        },
+        {
+          "id": 7,
+          "name": "Roth IRA",
+          "type": "Retirement",
+          "goal": 6000,
+          "current-amount": 3000,
+          "target-date": "12/01/2023",
+          "comment": "TODO - evaluate goal and target date - keep maxing out though"
+        },
+        {
+          "id": 8,
+          "name": "401k Roth",
+          "type": "Retirement",
+          "goal": 100000,
+          "current-amount": 600,
+          "target-date": "12/01/2023",
+          "comment": "TODO - evaluate goal and target date - keep maxing out though"
+        },
+        {
+          "id": 9,
+          "name": "Brokerage",
+          "type": "Retirement",
+          "goal": 10000,
+          "current-amount": 5000,
+          "target-date": "12/01/2023",
+          "comment": "TODO - evaluate goal and target date"
+        }
+      ],
+      "columnSumKeys": [],
+      "createdAt": "2022-12-12T03:06:21.771Z",
+      "updatedAt": "2022-12-12T03:06:21.771Z"
+    },
+    {
+      "id": "6396a2ba561d3cd644e2f987",
+      "formPageId": "credit-cards",
+      "userId": "testuser123",
+      "reportId": "6396a2ba561d3cd644e2f97e",
+      "name": "Credit Cards",
+      "tip": "",
+      "columns": [
+        {
+          "key": "name",
+          "title": "Name",
+          "dataType": "string"
+        },
+        {
+          "key": "type",
+          "title": "Type",
+          "dataType": "string"
+        },
+        {
+          "key": "date-opened",
+          "title": "Current Value",
+          "dataType": "string"
+        }
+      ],
+      "data": [
+        {
+          "id": 1,
+          "name": "JP Morgan Chase",
+          "type": "secured",
+          "date-opened": "2/11/2018"
+        }
+      ],
+      "columnSumKeys": [],
+      "createdAt": "2022-12-12T03:06:21.771Z",
+      "updatedAt": "2022-12-12T03:06:21.771Z"
+    },
+    {
+      "id": "6396a2ba561d3cd644e2f988",
+      "formPageId": "spending",
+      "userId": "testuser123",
+      "reportId": "6396a2ba561d3cd644e2f97e",
+      "name": "Monthly Spending",
+      "tip": "Aim to spend less than 75% of your income",
+      "columns": [
+        {
+          "key": "category",
+          "title": "Category",
+          "dataType": "string"
+        },
+        {
+          "key": "monthly-budget",
+          "title": "Monthly Budget",
+          "dataType": "number"
+        },
+        {
+          "key": "item",
+          "title": "Item",
+          "dataType": "string"
+        },
+        {
+          "key": "comment",
+          "title": "Comment",
+          "dataType": "string"
+        }
+      ],
+      "data": [
+        {
+          "id": 1,
+          "category": "Subscriptions",
+          "monthly-budget": 65,
+          "item": "Bills",
+          "comment": "Gym membership, AWS account, Phone"
+        },
+        {
+          "id": 2,
+          "category": "Food",
+          "monthly-budget": 385,
+          "item": "Groceries",
+          "comment": ""
+        },
+        {
+          "id": 3,
+          "category": "Food",
+          "monthly-budget": 50,
+          "item": "Eating out",
+          "comment": "Team lunches, eating out"
+        },
+        {
+          "id": 4,
+          "category": "Miscellaneous",
+          "monthly-budget": 140,
+          "item": "Misc",
+          "comment": "Household, Amazon, Clothes, Gifts, Haircut"
+        },
+        {
+          "id": 5,
+          "category": "Miscellaneous",
+          "monthly-budget": 60,
+          "item": "Travel",
+          "comment": "Visiting family"
+        },
+        {
+          "id": 6,
+          "category": "Housing",
+          "monthly-budget": 1400,
+          "item": "Rent",
+          "comment": ""
+        },
+        {
+          "id": 7,
+          "category": "Housing",
+          "monthly-budget": 113,
+          "item": "Storage Unit",
+          "comment": ""
+        },
+        {
+          "id": 8,
+          "category": "Insurance",
+          "monthly-budget": 136,
+          "item": "Car Insurance",
+          "comment": ""
+        },
+        {
+          "id": 9,
+          "category": "Insurance",
+          "monthly-budget": 0,
+          "item": "Renters Insurance",
+          "comment": ""
+        },
+        {
+          "id": 10,
+          "category": "Insurance",
+          "monthly-budget": 0,
+          "item": "Health Insurance",
+          "comment": ""
+        },
+        {
+          "id": 11,
+          "category": "Insurance",
+          "monthly-budget": 0,
+          "item": "Dental Insurance",
+          "comment": ""
+        },
+        {
+          "id": 12,
+          "category": "Transportation",
+          "monthly-budget": 50,
+          "item": "Car Maintenance",
+          "comment": "Tires, fees, oil"
+        },
+        {
+          "id": 13,
+          "category": "Transportation",
+          "monthly-budget": 85,
+          "item": "Gas",
+          "comment": "$4.50 gallon"
+        },
+        {
+          "id": 14,
+          "category": "Transportation",
+          "monthly-budget": 0,
+          "item": "ORCA Card",
+          "comment": "Free/unlimited work benefit"
+        }
+      ],
+      "columnSumKeys": {
+        "key": "monthly-tax",
+        "isNegative": true
+      },
+      "createdAt": "2022-12-12T03:06:21.770Z",
+      "updatedAt": "2022-12-12T03:06:21.770Z"
+    },
+    {
+      "id": "6396a2ba561d3cd644e2f989",
+      "formPageId": "investing",
+      "userId": "testuser123",
+      "reportId": "6396a2ba561d3cd644e2f97e",
+      "name": "Investing Allocations",
+      "tip": "Aim to invest 10% of your income",
+      "columns": [
+        {
+          "key": "name",
+          "title": "Name",
+          "dataType": "string"
+        },
+        {
+          "key": "monthly-amount",
+          "title": "Monthly Amount",
+          "dataType": "string"
+        }
+      ],
+      "data": [
+        {
+          "id": 1,
+          "name": "Roth 401(k)",
+          "monthly-amount": 1700
+        }
+      ],
+      "columnSumKeys": [
+        {
+          "key": "monthly-budget",
+          "isNegative": true
+        }
+      ],
+      "createdAt": "2022-12-12T03:06:21.770Z",
+      "updatedAt": "2022-12-12T03:06:21.770Z"
+    },
+    {
+      "id": "6396a2ba561d3cd644e2f982",
+      "formPageId": "savings",
+      "userId": "testuser123",
+      "reportId": "6396a2ba561d3cd644e2f97e",
+      "name": "Saving Allocations",
+      "tip": "Aim to save 10% of your income",
+      "columns": [
+        {
+          "key": "name",
+          "title": "Name",
+          "dataType": "string"
+        },
+        {
+          "key": "monthly-amount",
+          "title": "Monthly Amount",
+          "dataType": "number"
+        }
+      ],
+      "data": [
+        {
+          "id": 1,
+          "name": "Emergency Fund",
+          "monthly-amount": 500,
+          "comment": "$18,000 goal by 2023 Dec."
+        },
+        {
+          "id": 2,
+          "name": "Next Car",
+          "monthly-amount": 0,
+          "comment": "$5000 goal by 2025 Dec."
+        },
+        {
+          "id": 3,
+          "name": "Next Phone",
+          "monthly-amount": 0,
+          "comment": "$800 goal by 2023 Dec."
+        }
+      ],
+      "columnSumKeys": [
+        {
+          "key": "monthly-amount"
+        }
+      ],
+      "createdAt": "2022-12-12T03:06:21.770Z",
+      "updatedAt": "2022-12-12T03:06:21.770Z"
+    },
+    {
+      "id": "6396a2ba561d3cd644e2f983",
+      "formPageId": "cash",
+      "userId": "testuser123",
+      "reportId": "6396a2ba561d3cd644e2f97e",
+      "name": "Cash Holdings",
+      "tip": "",
+      "columns": [
+        {
+          "key": "name",
+          "title": "Name",
+          "dataType": "string"
+        },
+        {
+          "key": "type",
+          "title": "Type",
+          "dataType": "string"
+        },
+        {
+          "key": "current-total",
+          "title": "Current Total",
+          "dataType": "number"
+        }
+      ],
+      "data": [
+        {
+          "id": 1,
+          "name": "My Bank",
+          "type": "Checkings",
+          "current-total": 800
+        },
+        {
+          "id": 2,
+          "name": "My Bank",
+          "type": "Savings",
+          "current-total": 50
+        }
+      ],
+      "columnSumKeys": [
+        {
+          "key": "current-total"
+        }
+      ],
+      "createdAt": "2022-12-12T03:06:21.770Z",
+      "updatedAt": "2022-12-12T03:06:21.770Z"
+    }
+  ]
+}

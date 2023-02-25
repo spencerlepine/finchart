@@ -1,11 +1,11 @@
 import React from 'react';
 import Layout from '../styles/Layout';
-import StatusWidget from '../components/StatusWidget';
+import Dashboard from '../components/Dashboard';
 
 const Home = () => {
   return (
     <Layout>
-      <StatusWidget />
+      <Dashboard />
     </Layout>
   );
 };

@@ -1,5 +1,8 @@
 module.exports = {
   displayName: 'client',
+  coveragePathIgnorePatterns: ['node_modules', 'src/config', 'src/index.js', 'tst'],
+  collectCoverage: true,
+  coverageReporters: ['text', 'lcov', 'clover', 'html'],
   preset: 'ts-jest',
   testEnvironment: 'jsdom',
   transformIgnorePatterns: ['\\.(css|scss|sass)$'],

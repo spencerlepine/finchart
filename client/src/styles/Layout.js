@@ -1,3 +1,4 @@
+import { Container } from '@mui/system';
 import React from 'react';
 import Header from '../components/Header';
 
@@ -6,7 +7,7 @@ const Layout = (props) => {
     <div id="finchart-root">
       <Header />
 
-      {props.children}
+      <Container sx={{ my: 3 }}>{props.children}</Container>
     </div>
   );
 };

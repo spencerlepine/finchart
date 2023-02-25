@@ -11,17 +11,30 @@ const config = {
   ],
   settingLinks: [
     {
-      title: 'Settings',
-      path: '/settings',
-    },
-    {
       title: 'Dashboard',
       path: '/dashboard',
     },
     {
-      title: 'Dashboard',
+      title: 'Settings',
+      path: '/settings',
+    },
+    {
+      title: 'Logout',
       path: '/logout',
     },
+  ],
+  INITIAL_FORM_PAGE_ID: 'income',
+  FORM_PAGES_ORDER: [
+    'income',
+    'taxes',
+    'spending',
+    'investing',
+    'savings',
+    'cash',
+    'assets',
+    'liabilites',
+    'goals',
+    'credit-cards',
   ],
 };
 

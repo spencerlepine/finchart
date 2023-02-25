@@ -1,6 +1,6 @@
 {
   "name": "finchart",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "",
   "keywords": [],
   "author": "Spencer Lepine",
@@ -13,16 +13,19 @@
   "scripts": {
     "start": "yarn workspace api start",
     "start:prod": "cd api && yarn run start",
+    "dev": "(DISABLE_ESLINT_PLUGIN=true npm-watch) & yarn workspace api dev",
     "build": "yarn workspace client build",
     "test": "yarn workspace api test && yarn workspace client test",
-    "lint": "eslint .",
-    "lint:fix": "eslint . --fix",
-    "prettier": "prettier --check **/*.js",
-    "prettier:fix": "prettier --write **/*.js",
-    "dev": "(npm-watch) & yarn workspace api dev",
-    "prepare": "husky install"
+    "lint": "eslint --ext .js ./",
+    "lint:fix": "eslint --fix --ext .js ./",
+    "prettier": "prettier api/src client/src --check",
+    "prettier:fix": "yarn prettier --write",
+    "lint:cleanup": "yarn lint:fix && yarn prettier:fix",
+    "prepare": "husky install",
+    "generate-api-docs": "apidoc -f \"api/src/routes/.*\\.js$\" -i ./  -o docs/api/"
   },
   "devDependencies": {
+    "apidoc": "^0.53.0",
     "eslint": "^7.0.0",
     "eslint-config-prettier": "^8.1.0",
     "eslint-plugin-prettier": "^3.1.1",
