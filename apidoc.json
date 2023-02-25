@@ -1,0 +1,7 @@
+{
+  "name": "FinChart",
+  "version": "1.0.0",
+  "description": "REST API for financial spreadsheets and reports to generate charts",
+  "title": "FinChart API Documentation",
+  "url": "/api/v1"
+}

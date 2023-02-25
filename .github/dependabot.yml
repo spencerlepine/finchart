@@ -5,22 +5,28 @@
 
 version: 2
 updates:
-  - package-ecosystem: "yarn"
-    directory: "/client"
+  - package-ecosystem: 'yarn'
+    directory: '/client'
     schedule:
-      interval: "weekly"
+      interval: 'monthly'
     labels:
-      - "client dependency update"
+      - 'client dependency update'
     open-pull-requests-limit: 10
     reviewers:
       - spencerlepine
-      
-  - package-ecosystem: "yarn"
-    directory: "/api"
+    ignore:
+      - dependency-name: '*'
+        update-types: ['version-update:semver-major']
+
+  - package-ecosystem: 'yarn'
+    directory: '/api'
     schedule:
-      interval: "weekly"
+      interval: 'monthly'
     labels:
-      - "api dependency update"
+      - 'api dependency update'
     open-pull-requests-limit: 10
     reviewers:
       - spencerlepine
+    ignore:
+      - dependency-name: '*'
+        update-types: ['version-update:semver-major']

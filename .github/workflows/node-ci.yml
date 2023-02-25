@@ -15,9 +15,9 @@ jobs:
         node-version: [18.x]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
-    name: "🧪 Build and test"
+    name: '🧪 Build and test'
     steps:
-      - name: "☁️ Check out Git Repository"
+      - name: '☁️ Check out Git Repository'
         uses: actions/checkout@v3
 
       - name: Use Node.js ${{ matrix.node-version }}
@@ -27,14 +27,14 @@ jobs:
 
       # https://github.com/bahmutov/npm-install
       # GitHub Action for install npm dependencies with caching without any configuration
-      - name: "📦 Install Dependencies"
+      - name: '📦 Install Dependencies'
         uses: bahmutov/npm-install@v1
-      
-      - name: "🧹 Lint"
+
+      - name: '🧹 Lint'
         run: npm run lint
 
-      - name: "🏗️ Build"
+      - name: '🏗️ Build'
         run: npm run build
 
-      - name: "🧪 Test"
+      - name: '🧪 Test'
         run: npm run test

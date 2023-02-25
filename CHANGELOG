@@ -1,0 +1,40 @@
+
+# Change Log
+
+All notable changes to this project will be documented in this file.
+
+The format is based on [Keep a Changelog](http://keepachangelog.com/)
+and this project adheres to [Semantic Versioning](http://semver.org/).
+
+## 1.0.0 - 2023-02-25
+
+Introducing MVP features for viewing, creating, and editing reports. Express API serves static files, and handles business logic to interact with MongoDB.
+
+### Added
+
+- Basic authentication for admin user
+- API routes under path `/api/v1`
+- MVP frontend to create/edit/delete spreadsheets
+- Report import/export functionality
+- Dashboard view of latest snapshot
+- Strict FinChart JSON report export schemas, to import/export validation
+
+### Fixed
+
+### Changed
+
+## [Unreleased] - 2022-12-31
+
+Initial setup. Node/Express server serving static files and handling api calls under one domain.
+
+### Added
+
+- Deployed to [Render](https://dashboard.render.com/) via web-hook
+- Included IOS source code - built by [GoNative](https://gonative.io/)
+- Included Andriod source code - built by [GoNative](https://gonative.io/)
+- Included Andriod APK - built by [GoNative](https://gonative.io/)
+- Included `appConfig.json` to import on [GoNative](https://gonative.io/)
+
+### Fixed
+
+### Changed
