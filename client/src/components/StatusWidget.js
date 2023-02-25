@@ -5,7 +5,7 @@ import { AiOutlineLoading3Quarters } from 'react-icons/ai';
 import { BiErrorAlt } from 'react-icons/bi';
 
 const statusWidgetStyles = {
-  position: 'absolute',
+  position: 'fixed',
   right: '1em',
   bottom: '1em',
   padding: '0.5em 0.5em 0em 0.5em',
@@ -72,7 +72,7 @@ const StatusWidget = () => {
           {Object.keys(statusResult).map((statusKey) =>
             statusKey === 'nodeEnvMode' ? (
               <p key={statusKey}>
-                {statusKey}: {statusResult[statusKey]}
+                <strong>Mode:</strong> {statusResult[statusKey]}
               </p>
             ) : (
               <p key={statusKey}>

@@ -1,0 +1,39 @@
+{
+  "userId": "test-user-id",
+  "reportId": "63980dffba960d83e30dcf69",
+  "formPageId": "income",
+  "name": "Monthly Income",
+  "tip": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+  "prevFormPageId": null,
+  "nextFormPageId": "taxes",
+  "columnSumKeys": [
+    {
+      "key": "monthly-gross"
+    }
+  ],
+  "columns": [
+    {
+      "key": "name",
+      "title": "Name",
+      "dataType": "string"
+    },
+    {
+      "key": "monthly-gross",
+      "title": "Monthly Gross",
+      "dataType": "number"
+    },
+    {
+      "key": "monthly-net",
+      "title": "Monthly Net",
+      "dataType": "number"
+    }
+  ],
+  "data": [
+    {
+      "id": 1,
+      "name": "Army Active Duty",
+      "monthly-gross": 2141.9,
+      "monthly-net": 1786.18
+    }
+  ]
+}
