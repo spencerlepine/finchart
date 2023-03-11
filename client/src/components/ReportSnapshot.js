@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { AiOutlineLoading3Quarters } from 'react-icons/ai';
 import { Link, useNavigate } from 'react-router-dom';
-import { Box, Button, Paper } from '@mui/material';
+import { Box, Button, Paper, Typography } from '@mui/material';
 import { fetchOneReport, deleteExistingReport, generateReportExport } from '../api/reports';
 import moment from 'moment';
 import generateReportFileName from '../utils/generateReportFileName';
@@ -83,13 +83,10 @@ const ReportSnapshot = ({ reportId }) => {
 
   return (
     <div>
-      <Box display="flex" justifyContent="flex-start" alignItems="flex-start" px={3} my={2}>
-        <Button size="medium" variant="contained" contained="true" color="info" to="/reports" component={Link}>
-          Back to Reports
-        </Button>
-      </Box>
-
       <Box display="flex" justifyContent="flex-end" alignItems="flex-end" px={3} my={2}>
+        <Typography variant="h4" sx={{ marginRight: 'auto' }}>
+          {reportSnapshotData.title} {reportSnapshotData.status === 'draft' ? '(draft)' : ''}
+        </Typography>
         <Button sx={{ marginRight: '0.5em' }} size="small" variant="contained" color="warning" onClick={handleReportEdit}>
           Edit
         </Button>
@@ -101,18 +98,14 @@ const ReportSnapshot = ({ reportId }) => {
         </Button>
       </Box>
 
-      <Box mt={3}>
-        <h5>
-          {reportSnapshotData.title}{' '}
-          <Button size="small" variant="outlined" onClick={loadSnapshotData}>
-            Refresh
-          </Button>
-        </h5>
+      <Box mt={3} mb={3} display="flex">
+        <Button sx={{ marginRight: '0.5em' }} size="small" variant="outlined" onClick={loadSnapshotData}>
+          Refresh
+        </Button>
+        <Typography>Updated: {moment(reportSnapshotData.updatedAt).fromNow()}</Typography>
       </Box>
 
       <Paper>
-        <p>Last Updated: {moment(reportSnapshotData.updatedAt).fromNow()}</p>
-        <p>Status: {reportSnapshotData.status}</p>
         {reportSnapshotData.spreadsheets &&
           reportSnapshotData.spreadsheets.map &&
           reportSnapshotData.spreadsheets.map((spreadsheet) => (
