@@ -1,7 +1,7 @@
 {
   "name": "finchart",
-  "version": "1.0.0",
-  "description": "",
+  "version": "1.0.1",
+  "description": "MVP webapp to create/organize spreadsheets for tracking personal finances.",
   "keywords": [],
   "author": "Spencer Lepine",
   "license": "MIT",
