@@ -43,7 +43,7 @@ const ReportsList = () => {
   return (
     <Grid m={2} pt={3}>
       <h5>
-        Your Reports{' '}
+        All Reports{' '}
         <Button color="info" variant="outlined" onClick={loadUserReports} disabled={loading} size="small">
           Refresh
         </Button>
