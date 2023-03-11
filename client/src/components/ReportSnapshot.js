@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { AiOutlineLoading3Quarters } from 'react-icons/ai';
 import { useNavigate } from 'react-router-dom';
-import { Box, Button, Paper, TextField, Typography } from '@mui/material';
+import { Box, Button, Paper, TextareaAutosize, TextField, Typography } from '@mui/material';
 import { fetchOneReport, deleteExistingReport, generateReportExport, updateReportMetadata } from '../api/reports';
 import moment from 'moment';
 import generateReportFileName from '../utils/generateReportFileName';
@@ -48,10 +48,47 @@ const TitleEditor = ({ reportSnapshotData, editingTitle, titleInput, setEditingT
   </>
 );
 
+const NotesEditor = ({ reportSnapshotData, editingNotes, notesInput, setEditingNotes, saveNewMetadata, setNotesInput }) => (
+  <Box my={4}>
+    {editingNotes ? (
+      <>
+        <TextareaAutosize
+          maxRows={4}
+          aria-label="maximum height"
+          placeholder="Type notes here"
+          onChange={(e) => setNotesInput(e.target.value)}
+          defaultValue={notesInput}
+          style={{ width: 200 }}
+        />
+        <Button
+          sx={{ margin: '0.5em', marginRight: 'auto' }}
+          size="small"
+          variant="outlined"
+          onClick={() => {
+            setEditingNotes(false);
+            saveNewMetadata();
+          }}
+        >
+          Save
+        </Button>
+      </>
+    ) : (
+      <>
+        <Typography sx={{ marginRight: '0.5em' }}>{reportSnapshotData.notes || 'Add notes here'}</Typography>
+        <Button sx={{ marginRight: 'auto' }} size="small" variant="outlined" onClick={() => setEditingNotes(true)}>
+          Edit Notes
+        </Button>
+      </>
+    )}
+  </Box>
+);
+
 const ReportSnapshot = ({ reportId }) => {
   const [loading, setLoading] = useState(false);
   const [editingTitle, setEditingTitle] = useState(false);
   const [titleInput, setTitleInput] = useState('Default Title');
+  const [editingNotes, setEditingNotes] = useState(false);
+  const [notesInput, setNotesInput] = useState('');
   const [reportSnapshotData, setReportSnapshotData] = useState(null);
   const navigate = useNavigate();
 
@@ -62,6 +99,7 @@ const ReportSnapshot = ({ reportId }) => {
       .then((reportMetadata) => {
         setReportSnapshotData(reportMetadata);
         setTitleInput(reportMetadata.title);
+        setNotesInput(reportMetadata.notes);
         setLoading(false);
       })
       .catch((err) => {
@@ -106,19 +144,29 @@ const ReportSnapshot = ({ reportId }) => {
 
   const saveNewMetadata = () => {
     setEditingTitle(false);
+    setEditingNotes(false);
 
-    if (!!titleInput && titleInput !== reportSnapshotData.title) {
+    const titleChanged = !!titleInput && titleInput !== reportSnapshotData.title;
+    const notesChanged = !!notesInput && notesInput !== reportSnapshotData.notes;
+    if (titleChanged || notesChanged) {
       setLoading(true);
 
-      void updateReportMetadata(reportId, { title: titleInput })
+      const newMetadata = { title: titleInput };
+      if (notesInput) {
+        newMetadata.notes = notesInput;
+      }
+
+      void updateReportMetadata(reportId, newMetadata)
         .then(() => {
-          setReportSnapshotData((prevConfig) => ({ ...prevConfig, title: titleInput }));
+          setReportSnapshotData((prevConfig) => ({ ...prevConfig, title: titleInput, notes: notesInput }));
           setTitleInput(titleInput);
+          setNotesInput(notesInput);
           setLoading(false);
         })
         .catch((err) => {
           console.error(err);
           setTitleInput(reportSnapshotData.title);
+          setNotesInput(reportSnapshotData.notes);
           setLoading(false);
         });
     }
@@ -181,6 +229,15 @@ const ReportSnapshot = ({ reportId }) => {
             />
           ))}
       </Paper>
+
+      <NotesEditor
+        reportSnapshotData={reportSnapshotData}
+        editingNotes={editingNotes}
+        notesInput={notesInput}
+        setEditingNotes={setEditingNotes}
+        saveNewMetadata={saveNewMetadata}
+        setNotesInput={setNotesInput}
+      />
       {/* <Paper>
         <p>Last Updated: {moment(reportSnapshotData.updatedAt).fromNow()}</p>
         <p>Status: {reportSnapshotData.status}</p>
