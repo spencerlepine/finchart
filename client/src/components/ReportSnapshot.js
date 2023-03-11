@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { AiOutlineLoading3Quarters } from 'react-icons/ai';
-import { Link, useNavigate } from 'react-router-dom';
-import { Box, Button, Paper, Typography } from '@mui/material';
-import { fetchOneReport, deleteExistingReport, generateReportExport } from '../api/reports';
+import { useNavigate } from 'react-router-dom';
+import { Box, Button, Paper, TextField, Typography } from '@mui/material';
+import { fetchOneReport, deleteExistingReport, generateReportExport, updateReportMetadata } from '../api/reports';
 import moment from 'moment';
 import generateReportFileName from '../utils/generateReportFileName';
 import TableEditor from './TableEditor';
@@ -13,8 +13,45 @@ import TableEditor from './TableEditor';
 import config from '../config';
 const { INITIAL_FORM_PAGE_ID } = config;
 
+const TitleEditor = ({ reportSnapshotData, editingTitle, titleInput, setEditingTitle, saveNewMetadata, setTitleInput }) => (
+  <>
+    {editingTitle ? (
+      <>
+        <TextField
+          id="outlined-basic"
+          label="Report Title"
+          defaultValue={titleInput}
+          onChange={(e) => setTitleInput(e.target.value)}
+        />
+        <Button
+          sx={{ margin: '0.5em', marginRight: 'auto' }}
+          size="small"
+          variant="outlined"
+          onClick={() => {
+            setEditingTitle(false);
+            saveNewMetadata();
+          }}
+        >
+          Save
+        </Button>
+      </>
+    ) : (
+      <>
+        <Typography variant="h4" sx={{ marginRight: '0.5em' }}>
+          {reportSnapshotData.title}
+        </Typography>
+        <Button sx={{ marginRight: 'auto' }} size="small" variant="outlined" onClick={() => setEditingTitle(true)}>
+          Rename
+        </Button>
+      </>
+    )}
+  </>
+);
+
 const ReportSnapshot = ({ reportId }) => {
   const [loading, setLoading] = useState(false);
+  const [editingTitle, setEditingTitle] = useState(false);
+  const [titleInput, setTitleInput] = useState('Default Title');
   const [reportSnapshotData, setReportSnapshotData] = useState(null);
   const navigate = useNavigate();
 
@@ -24,6 +61,7 @@ const ReportSnapshot = ({ reportId }) => {
     void fetchOneReport(reportId)
       .then((reportMetadata) => {
         setReportSnapshotData(reportMetadata);
+        setTitleInput(reportMetadata.title);
         setLoading(false);
       })
       .catch((err) => {
@@ -66,6 +104,26 @@ const ReportSnapshot = ({ reportId }) => {
     navigate(`/reports/${reportId}/${INITIAL_FORM_PAGE_ID}`);
   };
 
+  const saveNewMetadata = () => {
+    setEditingTitle(false);
+
+    if (!!titleInput && titleInput !== reportSnapshotData.title) {
+      setLoading(true);
+
+      void updateReportMetadata(reportId, { title: titleInput })
+        .then(() => {
+          setReportSnapshotData((prevConfig) => ({ ...prevConfig, title: titleInput }));
+          setTitleInput(titleInput);
+          setLoading(false);
+        })
+        .catch((err) => {
+          console.error(err);
+          setTitleInput(reportSnapshotData.title);
+          setLoading(false);
+        });
+    }
+  };
+
   useEffect(() => {
     loadSnapshotData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -84,9 +142,14 @@ const ReportSnapshot = ({ reportId }) => {
   return (
     <div>
       <Box display="flex" justifyContent="flex-end" alignItems="flex-end" px={3} my={2}>
-        <Typography variant="h4" sx={{ marginRight: 'auto' }}>
-          {reportSnapshotData.title} {reportSnapshotData.status === 'draft' ? '(draft)' : ''}
-        </Typography>
+        <TitleEditor
+          reportSnapshotData={reportSnapshotData}
+          editingTitle={editingTitle}
+          titleInput={titleInput}
+          setEditingTitle={setEditingTitle}
+          saveNewMetadata={saveNewMetadata}
+          setTitleInput={setTitleInput}
+        />
         <Button sx={{ marginRight: '0.5em' }} size="small" variant="contained" color="warning" onClick={handleReportEdit}>
           Edit
         </Button>
@@ -98,7 +161,7 @@ const ReportSnapshot = ({ reportId }) => {
         </Button>
       </Box>
 
-      <Box mt={3} mb={3} display="flex">
+      <Box mt={3} mb={3} display="flex" px={3}>
         <Button sx={{ marginRight: '0.5em' }} size="small" variant="outlined" onClick={loadSnapshotData}>
           Refresh
         </Button>

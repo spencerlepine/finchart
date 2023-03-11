@@ -23,6 +23,6 @@ yarn run dev
 
 ## Upcoming Features
 
-- Edit report name/notes
+- Hide/Show $$$ value
 - View ChatJS charts/graphs
 - Override/Set Report Date
