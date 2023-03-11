@@ -5,7 +5,7 @@
 
 version: 2
 updates:
-  - package-ecosystem: 'yarn'
+  - package-ecosystem: 'npm'
     directory: '/client'
     schedule:
       interval: 'monthly'
@@ -18,7 +18,7 @@ updates:
       - dependency-name: '*'
         update-types: ['version-update:semver-major']
 
-  - package-ecosystem: 'yarn'
+  - package-ecosystem: 'npm'
     directory: '/api'
     schedule:
       interval: 'monthly'
