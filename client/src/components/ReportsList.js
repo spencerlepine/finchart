@@ -43,7 +43,7 @@ const ReportsList = () => {
   return (
     <Grid m={2} pt={3}>
       <h5>
-        Your Reports{' '}
+        All Reports{' '}
         <Button color="info" variant="outlined" onClick={loadUserReports} disabled={loading} size="small">
           Refresh
         </Button>
@@ -54,20 +54,20 @@ const ReportsList = () => {
           <Table sx={{ minWidth: 650 }} aria-label="simple table">
             <TableHead>
               <TableRow>
-                <TableCell>Id</TableCell>
-                <TableCell align="right">Title</TableCell>
-                <TableCell align="right">Status</TableCell>
-                <TableCell align="right">Last Updated</TableCell>
+                <TableCell align="left">Title</TableCell>
+                <TableCell align="left">Status</TableCell>
+                <TableCell align="left">Id</TableCell>
+                <TableCell align="left">Last Updated</TableCell>
                 <TableCell align="right"></TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
               {reports.map((report) => (
                 <TableRow key={report.id} sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
-                  <TableCell>{report.id.substring(0, 8)}</TableCell>
-                  <TableCell align="right">{report.title}</TableCell>
-                  <TableCell align="right">{report.status}</TableCell>
-                  <TableCell align="right">{moment(report.updatedAt).fromNow()}</TableCell>
+                  <TableCell align="left">{report.title}</TableCell>
+                  <TableCell align="left">{report.status}</TableCell>
+                  <TableCell align="left">{report.id.substring(0, 8)}</TableCell>
+                  <TableCell align="left">{moment(report.updatedAt).fromNow()}</TableCell>
                   <TableCell align="right">
                     <a href={`/reports/${report.id}`}>View</a>
                   </TableCell>

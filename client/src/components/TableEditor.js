@@ -111,7 +111,7 @@ const TableEditor = (props) => {
 
     loadSpreadsheetConfig((pageConfig) => {
       const columnsWithDeleteBtn = [...(pageConfig.columns || [])];
-      if (isReadOnly === false && !columnsWithDeleteBtn.some(({ key }) => key === ':delete')) {
+      if (!isReadOnly && !columnsWithDeleteBtn.some(({ key }) => key === ':delete')) {
         columnsWithDeleteBtn.push({ key: ':delete', width: 70, style: { textAlign: 'center' } });
       }
       pageConfig.columns = columnsWithDeleteBtn;
@@ -172,7 +172,7 @@ const TableEditor = (props) => {
 
         {pageConfig.tip && <Alert severity="info">{pageConfig.tip}</Alert>}
 
-        {isReadOnly === false && (
+        {!isReadOnly && (
           <Box display="flex" justifyContent="flex-end" alignItems="flex-end" sx={{ marginLeft: 'auto' }}>
             <Button size="small" contained="true" variant="contained" onClick={handleRowInsertBottom} color="info">
               Insert Row

@@ -1,4 +1,4 @@
-import { Button, Toolbar } from '@mui/material';
+import { Button, Toolbar, Typography } from '@mui/material';
 import React from 'react';
 import ReportsList from '../components/ReportsList';
 import Layout from '../styles/Layout';
@@ -17,10 +17,12 @@ const Reports = () => {
 
   return (
     <Layout>
-      <h3>Reports Dashboard</h3>
-
       <Toolbar>
-        <Button href="/import" color="info" variant="contained" size="medium">
+        <Typography variant="h5" sx={{ marginRight: 'auto' }}>
+          Reports Dashboard
+        </Typography>
+
+        <Button sx={{ marginRight: '0.5em' }} href="/import" color="info" variant="contained" size="medium">
           Import Report
         </Button>
         <Button color="success" variant="contained" size="medium" onClick={handleCreateNewReport}>

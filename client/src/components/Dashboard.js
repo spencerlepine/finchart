@@ -18,7 +18,7 @@ const Dashboard = () => {
   return (
     <Box maxWidth="md">
       <Toolbar>
-        <Button to="/reports" component={Link} color="info" variant="contained" size="medium">
+        <Button sx={{ marginRight: '0.5em' }} to="/reports" component={Link} color="info" variant="contained" size="medium">
           View Reports
         </Button>
         <Button color="success" variant="contained" size="medium" onClick={handleCreateNewReport}>

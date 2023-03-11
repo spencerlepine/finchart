@@ -133,7 +133,8 @@ module.exports.importOneUserReport = (req, res) => {
 
 module.exports.getLatestUserReport = (req, res) => {
   const query = { userId: req.params.userId };
-  ReportMetadataMongoose.find(query, { sort: { createdAt: 1 } })
+  ReportMetadataMongoose.find(query, { sort: { createdAt: -1 } })
+    .sort({ createdAt: -1 })
     .then((result) => {
       const latestReportDocument = result[0];
       return ReportMetadataMongoose.findOne({ _id: latestReportDocument._id }).then((d) => res.json(d.toObject()));
