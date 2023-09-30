@@ -47,7 +47,7 @@ const DeleteRowBtn = ({ dispatch, rowKeyValue }) => {
  * Fetches/updates row data with user input
  */
 const TableEditor = (props) => {
-  const { formPageId, reportId, initialSpreadsheetConfig, isReadOnly } = props;
+  const { formPageId, reportId, initialSpreadsheetConfig, isReadOnly, hasLinkToEditPage, handleOpenEditPage } = props;
 
   const [loading, setLoading] = useState(false);
   const [tableProps, changeTableProps] = useState({ ...tablePropsInit, ...initialSpreadsheetConfig });
@@ -168,6 +168,17 @@ const TableEditor = (props) => {
       <Toolbar>
         <Typography variant="h5" color="inherit" mr={2}>
           {pageConfig.name || pageConfig.formPageId}
+          {hasLinkToEditPage && (
+            <Button
+              sx={{ marginRight: '0.5em' }}
+              size="small"
+              variant="contained"
+              color="warning"
+              onClick={() => handleOpenEditPage(formPageId)}
+            >
+              Edit
+            </Button>
+          )}
         </Typography>
 
         {pageConfig.tip && <Alert severity="info">{pageConfig.tip}</Alert>}

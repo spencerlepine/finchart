@@ -17,12 +17,12 @@ FinChat is a MVP webapp to create, edit, and view spreadsheet tables, organized 
 
 ```sh
 yarn install
-cp env.sample api/.env
+cp .env.sample api/.env
 yarn run dev
+# open localhost:5000
 ```
 
-## Upcoming Features
+## Feature Ideas
 
 - Hide/Show $$$ value
 - View ChatJS charts/graphs
-- Override/Set Report Date

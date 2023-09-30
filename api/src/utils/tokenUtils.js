@@ -16,12 +16,12 @@ const generateAccessToken = (username) => {
 
 const authenticateCustomUser = (username, password) => {
   const validUsername = username === config.CUSTOM_USERNAME;
-  const validPassword = getHashedPassword(password) === config.CUSTOM_PASSWORD;
+  const validPassword = getHashedPassword(password) === config.CUSTOM_HASHED_PASSWORD;
 
   if (validUsername && validPassword) {
     return true;
   } else {
-    logger.error('Auth attempt failure for user:', username);
+    logger.error('Auth attempt failure for user:' + username);
   }
   return false;
 };

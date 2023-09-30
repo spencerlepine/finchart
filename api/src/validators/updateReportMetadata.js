@@ -5,6 +5,7 @@ const updateReportMetadata = joi
     title: joi.string().min(5).max(125),
     status: joi.string().valid('draft', 'complete').default('draft').description('Form completion status'),
     notes: joi.string().max(360).default('').optional().description('Description or notes about report'),
+    reportDate: joi.string().max(360).default('').optional().description('End date of the report'),
   })
   .options({ stripUnknown: true });
 
