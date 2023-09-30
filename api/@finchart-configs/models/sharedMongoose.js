@@ -103,5 +103,6 @@ exports.ERRORS = {
   TITLE_ERROR: 'Rreport title cannot be over 100 characters',
   STATUS_ERROR: 'Status can only be complete/draft',
   NOTES_ERROR: 'Report notes cannot be over 255 characters',
+  DATE_ERROR: 'Report date must be valid date string',
   VERSION_ERROR: 'Accepting semver form version, starting at 1.0.0',
 };

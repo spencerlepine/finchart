@@ -33,6 +33,12 @@ const JOI_SCHEMA = joi
       .default('')
       .description('Description or notes about report')
       .error(() => new Error(ERRORS.NOTES_ERROR)),
+    reportDate: joi
+      .string()
+      .empty('')
+      .default('')
+      .description('End date of the report')
+      .error(() => new Error(ERRORS.DATE_ERROR)),
     version: joi
       .string()
       .regex(/^([0-9]+)\.([0-9]+)\.([0-9]+)(?:-([0-9A-Za-z-]+(?:\.[0-9A-Za-z-]+)*))?(?:\+[0-9A-Za-z-]+)?$/)
@@ -48,6 +54,7 @@ const DUMMY_MODEL = {
   title: 'My Q4 Report',
   status: 'draft',
   notes: 'I still need to add taxes',
+  reportDate: 'Sat Mar 11 2023 02:55:59 GMT-0800 (Pacific Standard Time)',
   version: '1.0.0',
 };
 

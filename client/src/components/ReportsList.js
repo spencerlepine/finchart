@@ -19,7 +19,7 @@ const ReportsList = () => {
     setLoading(true);
     void fetchAllReports()
       .then((allReports) => {
-        setReports(allReports);
+        setReports(allReports.sort((a, b) => new Date(b.reportDate) - new Date(a.reportDate)));
         setLoading(false);
       })
       .catch((err) => {
@@ -58,6 +58,7 @@ const ReportsList = () => {
                 <TableCell align="left">Status</TableCell>
                 <TableCell align="left">Id</TableCell>
                 <TableCell align="left">Last Updated</TableCell>
+                <TableCell align="left">Report Date</TableCell>
                 <TableCell align="right"></TableCell>
               </TableRow>
             </TableHead>
@@ -68,6 +69,7 @@ const ReportsList = () => {
                   <TableCell align="left">{report.status}</TableCell>
                   <TableCell align="left">{report.id.substring(0, 8)}</TableCell>
                   <TableCell align="left">{moment(report.updatedAt).fromNow()}</TableCell>
+                  <TableCell align="left">{moment(report.reportDate || report.updatedAt).format('YYYY-MM-DD')}</TableCell>
                   <TableCell align="right">
                     <a href={`/reports/${report.id}`}>View</a>
                   </TableCell>

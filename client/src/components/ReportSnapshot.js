@@ -4,8 +4,12 @@ import { useNavigate } from 'react-router-dom';
 import { Box, Button, Paper, TextareaAutosize, TextField, Typography } from '@mui/material';
 import { fetchOneReport, deleteExistingReport, generateReportExport, updateReportMetadata } from '../api/reports';
 import moment from 'moment';
+import 'moment-timezone';
 import generateReportFileName from '../utils/generateReportFileName';
 import TableEditor from './TableEditor';
+import { DatePicker } from '@mui/x-date-pickers/DatePicker';
+import { LocalizationProvider } from '@mui/x-date-pickers';
+import { AdapterMoment } from '@mui/x-date-pickers/AdapterMoment';
 
 // TODO
 // import staticReportSnapshot from '../__mocks__/fakeReportSnapshot.json';
@@ -83,12 +87,66 @@ const NotesEditor = ({ reportSnapshotData, editingNotes, notesInput, setEditingN
   </Box>
 );
 
+const DateEditor = ({
+  reportSnapshotData,
+  reportDateInput,
+  setReportDateInput,
+  saveNewMetadata,
+  setEditingDate,
+  editingDate,
+}) => (
+  <Box my={4}>
+    {editingDate ? (
+      <>
+        <LocalizationProvider dateAdapter={AdapterMoment}>
+          <DatePicker
+            onChange={(newValue) => {
+              setReportDateInput(newValue);
+            }}
+          />
+        </LocalizationProvider>
+        <Button
+          sx={{ margin: '0.5em', marginRight: 'auto' }}
+          size="small"
+          variant="outlined"
+          onClick={() => {
+            setEditingDate(false);
+            saveNewMetadata();
+          }}
+        >
+          Save
+        </Button>
+        <Button
+          sx={{ margin: '0.5em', marginRight: 'auto' }}
+          size="small"
+          color="error"
+          variant="outlined"
+          onClick={() => {
+            setEditingDate(false);
+          }}
+        >
+          Cancel
+        </Button>
+      </>
+    ) : (
+      <>
+        <Typography sx={{ marginRight: '0.5em' }}>{moment(reportDateInput).format('YYYY-MM-DD')}</Typography>
+        <Button sx={{ marginRight: 'auto' }} size="small" variant="outlined" onClick={() => setEditingDate(true)}>
+          Edit Report Date
+        </Button>
+      </>
+    )}
+  </Box>
+);
+
 const ReportSnapshot = ({ reportId }) => {
   const [loading, setLoading] = useState(false);
   const [editingTitle, setEditingTitle] = useState(false);
   const [titleInput, setTitleInput] = useState('Default Title');
   const [editingNotes, setEditingNotes] = useState(false);
+  const [editingDate, setEditingDate] = useState(false);
   const [notesInput, setNotesInput] = useState('');
+  const [reportDateInput, setReportDateInput] = useState('');
   const [reportSnapshotData, setReportSnapshotData] = useState(null);
   const navigate = useNavigate();
 
@@ -100,6 +158,7 @@ const ReportSnapshot = ({ reportId }) => {
         setReportSnapshotData(reportMetadata);
         setTitleInput(reportMetadata.title);
         setNotesInput(reportMetadata.notes);
+        setReportDateInput(reportMetadata.reportDate || reportMetadata.lastUpdated);
         setLoading(false);
       })
       .catch((err) => {
@@ -138,29 +197,40 @@ const ReportSnapshot = ({ reportId }) => {
       });
   };
 
-  const handleReportEdit = () => {
-    navigate(`/reports/${reportId}/${INITIAL_FORM_PAGE_ID}`);
+  const handleReportEdit = (id = INITIAL_FORM_PAGE_ID) => {
+    navigate(`/reports/${reportId}/${id}`);
   };
 
   const saveNewMetadata = () => {
     setEditingTitle(false);
     setEditingNotes(false);
+    setEditingDate(false);
 
     const titleChanged = !!titleInput && titleInput !== reportSnapshotData.title;
     const notesChanged = !!notesInput && notesInput !== reportSnapshotData.notes;
-    if (titleChanged || notesChanged) {
+    const dateChanged = !!reportDateInput && reportDateInput !== reportSnapshotData.reportDate;
+    if (titleChanged || notesChanged || dateChanged) {
       setLoading(true);
 
       const newMetadata = { title: titleInput };
       if (notesInput) {
         newMetadata.notes = notesInput;
       }
+      if (reportDateInput) {
+        newMetadata.reportDate = reportDateInput;
+      }
 
       void updateReportMetadata(reportId, newMetadata)
         .then(() => {
-          setReportSnapshotData((prevConfig) => ({ ...prevConfig, title: titleInput, notes: notesInput }));
+          setReportSnapshotData((prevConfig) => ({
+            ...prevConfig,
+            title: titleInput,
+            notes: notesInput,
+            reportDate: reportDateInput,
+          }));
           setTitleInput(titleInput);
           setNotesInput(notesInput);
+          setReportDateInput(reportDateInput);
           setLoading(false);
         })
         .catch((err) => {
@@ -198,7 +268,13 @@ const ReportSnapshot = ({ reportId }) => {
           saveNewMetadata={saveNewMetadata}
           setTitleInput={setTitleInput}
         />
-        <Button sx={{ marginRight: '0.5em' }} size="small" variant="contained" color="warning" onClick={handleReportEdit}>
+        <Button
+          sx={{ marginRight: '0.5em' }}
+          size="small"
+          variant="contained"
+          color="warning"
+          onClick={() => handleReportEdit()}
+        >
           Edit
         </Button>
         <Button sx={{ marginRight: '0.5em' }} size="small" variant="contained" color="success" onClick={handleReportExport}>
@@ -224,6 +300,8 @@ const ReportSnapshot = ({ reportId }) => {
               formPageId={spreadsheet.formPageId}
               reportId={spreadsheet._id}
               isReadOnly={true}
+              hasLinkToEditPage={true}
+              handleOpenEditPage={handleReportEdit}
               setPageLoading={setLoading}
               initialSpreadsheetConfig={spreadsheet}
             />
@@ -238,6 +316,16 @@ const ReportSnapshot = ({ reportId }) => {
         saveNewMetadata={saveNewMetadata}
         setNotesInput={setNotesInput}
       />
+
+      <DateEditor
+        reportSnapshotData={reportSnapshotData}
+        editingDate={editingDate}
+        reportDateInput={reportDateInput}
+        setEditingDate={setEditingDate}
+        saveNewMetadata={saveNewMetadata}
+        setReportDateInput={setReportDateInput}
+      />
+
       {/* <Paper>
         <p>Last Updated: {moment(reportSnapshotData.updatedAt).fromNow()}</p>
         <p>Status: {reportSnapshotData.status}</p>

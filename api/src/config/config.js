@@ -8,7 +8,7 @@ const config = {
   PORT: process.env.PORT || '5000',
   PATH_AUTH_WHITELIST: ['/login', '/signup', '/status', '/auth/login'],
   CUSTOM_USERNAME: process.env.CUSTOM_USERNAME || testCredentials.TEST_USERNAME,
-  CUSTOM_PASSWORD: process.env.CUSTOM_PASSWORD || testCredentials.TEST_PASSWORD_HASH,
+  CUSTOM_HASHED_PASSWORD: process.env.CUSTOM_HASHED_PASSWORD || testCredentials.TEST_PASSWORD_HASH,
   JWT_TOKEN: process.env.JWT_TOKEN || testCredentials.TEST_JWT_TOKEN,
 };
 

@@ -14,6 +14,6 @@ Add the following environment variables:
 ```yml
 - MONGO_URI: <SET_ME>
 - CUSTOM_USERNAME: <SET_ME>
-- CUSTOM_PASSWORD: <SET_ME>
+- CUSTOM_HASHED_PASSWORD: <SET_ME>
 - JWT_TOKEN: <SET_ME>
 ```
